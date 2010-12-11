@@ -1,0 +1,146 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Examples &mdash; bitcoin-python v0.1 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="bitcoin-python v0.1 documentation" href="index.html" />
+    <link rel="up" title="Getting Started" href="gettingstarted.html" />
+    <link rel="next" title="API reference" href="apireference.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="apireference.html" title="API reference"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="introduction.html" title="Introduction"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">bitcoin-python v0.1 documentation</a> &raquo;</li>
+          <li><a href="gettingstarted.html" accesskey="U">Getting Started</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<p>A basic program that uses <tt class="docutils literal"><span class="pre">python-bitcoin</span></tt> looks like this:</p>
+<p>First, import the library and exceptions.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">bitcoin</span>
+<span class="kn">from</span> <span class="nn">bitcoin.exceptions</span> <span class="kn">import</span> <span class="n">InsufficientFunds</span>
+</pre></div>
+</div>
+<p>Then, we connect to the currently running <tt class="docutils literal"><span class="pre">bitcoin</span></tt> instance of the current user on the local machine
+with one call to
+<a class="reference internal" href="bitcoin.html#bitcoin.connect_to_local" title="bitcoin.connect_to_local"><tt class="xref py py-func docutils literal"><span class="pre">connect_to_local()</span></tt></a>. This returns a <a class="reference internal" href="bitcoin.connection.html#bitcoin.connection.BitcoinConnection" title="bitcoin.connection.BitcoinConnection"><tt class="xref py py-class docutils literal"><span class="pre">BitcoinConnection</span></tt></a> objects:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">conn</span> <span class="o">=</span> <span class="n">bitcoin</span><span class="o">.</span><span class="n">connect_to_local</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Try to move one bitcoin from account <tt class="docutils literal"><span class="pre">testaccount</span></tt> to account <tt class="docutils literal"><span class="pre">testaccount2</span></tt> using
+<a class="reference internal" href="bitcoin.connection.html#bitcoin.connection.BitcoinConnection.move" title="bitcoin.connection.BitcoinConnection.move"><tt class="xref py py-func docutils literal"><span class="pre">move()</span></tt></a>. Catch the <a class="reference internal" href="bitcoin.exceptions.html#bitcoin.exceptions.InsufficientFunds" title="bitcoin.exceptions.InsufficientFunds"><tt class="xref py py-class docutils literal"><span class="pre">InsufficientFunds</span></tt></a>
+exception in the case the originating account is broke:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="s">&quot;testaccount&quot;</span><span class="p">,</span> <span class="s">&quot;testaccount2&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">InsufficientFunds</span><span class="p">,</span><span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;Account does not have enough funds available!&quot;</span>
+</pre></div>
+</div>
+<p>Retrieve general server information with <a class="reference internal" href="bitcoin.connection.html#bitcoin.connection.BitcoinConnection.getinfo" title="bitcoin.connection.BitcoinConnection.getinfo"><tt class="xref py py-func docutils literal"><span class="pre">getinfo()</span></tt></a> and print some statistics:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">info</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">getinfo</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">&quot;Blocks: </span><span class="si">%i</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">info</span><span class="o">.</span><span class="n">blocks</span>
+<span class="k">print</span> <span class="s">&quot;Connections: </span><span class="si">%i</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">info</span><span class="o">.</span><span class="n">connections</span>
+<span class="k">print</span> <span class="s">&quot;Difficulty: </span><span class="si">%f</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">info</span><span class="o">.</span><span class="n">difficulty</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="introduction.html"
+                        title="previous chapter">Introduction</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="apireference.html"
+                        title="next chapter">API reference</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/examples.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="apireference.html" title="API reference"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="introduction.html" title="Introduction"
+             >previous</a> |</li>
+        <li><a href="index.html">bitcoin-python v0.1 documentation</a> &raquo;</li>
+          <li><a href="gettingstarted.html" >Getting Started</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Witchspace.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+    </div>
+  </body>
+</html>

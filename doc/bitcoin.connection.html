@@ -1,0 +1,393 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>bitcoin.connection — Connect to Bitcoin server via JSON-RPC &mdash; bitcoin-python v0.1 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="bitcoin-python v0.1 documentation" href="index.html" />
+    <link rel="up" title="API reference" href="apireference.html" />
+    <link rel="next" title="bitcoin.exceptions — Exception definitions" href="bitcoin.exceptions.html" />
+    <link rel="prev" title="bitcoin — Convenience functions" href="bitcoin.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bitcoin.exceptions.html" title="bitcoin.exceptions — Exception definitions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bitcoin.html" title="bitcoin — Convenience functions"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">bitcoin-python v0.1 documentation</a> &raquo;</li>
+          <li><a href="apireference.html" accesskey="U">API reference</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-bitcoin.connection">
+<span id="bitcoin-connection-connect-to-bitcoin-server-via-json-rpc"></span><h1><a class="reference internal" href="#module-bitcoin.connection" title="bitcoin.connection"><tt class="xref py py-mod docutils literal"><span class="pre">bitcoin.connection</span></tt></a> &#8212; Connect to Bitcoin server via JSON-RPC<a class="headerlink" href="#module-bitcoin.connection" title="Permalink to this headline">¶</a></h1>
+<p>Connect to Bitcoin server via JSON-RPC.</p>
+<dl class="class">
+<dt id="bitcoin.connection.BitcoinConnection">
+<em class="property">class </em><tt class="descclassname">bitcoin.connection.</tt><tt class="descname">BitcoinConnection</tt><big>(</big><em>user</em>, <em>password</em>, <em>host='localhost'</em>, <em>port=8332</em><big>)</big><a class="headerlink" href="#bitcoin.connection.BitcoinConnection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>A BitcoinConnection object defines a connection to a bitcoin server.
+It is a thin wrapper around a JSON-RPC API connection.</p>
+<p>Up-to-date for SVN revision 198.</p>
+<p>Arguments to constructor:</p>
+<ul class="simple">
+<li><em>user</em> &#8211; Authenticate as user.</li>
+<li><em>password</em> &#8211; Authentication password.</li>
+<li><em>host</em> &#8211; Bitcoin JSON-RPC host.</li>
+<li><em>port</em> &#8211; Bitcoin JSON-RPC port.</li>
+</ul>
+<dl class="method">
+<dt id="bitcoin.connection.BitcoinConnection.backupwallet">
+<tt class="descname">backupwallet</tt><big>(</big><em>destination</em><big>)</big><a class="headerlink" href="#bitcoin.connection.BitcoinConnection.backupwallet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Safely copies <tt class="docutils literal"><span class="pre">wallet.dat</span></tt> to <em>destination</em>, which can be a directory or a path with filename.</p>
+<p>Arguments:
+- <em>destination</em> &#8211; directory or path with filename to backup wallet to.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitcoin.connection.BitcoinConnection.getaccount">
+<tt class="descname">getaccount</tt><big>(</big><em>bitcoinaddress</em><big>)</big><a class="headerlink" href="#bitcoin.connection.BitcoinConnection.getaccount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the account associated with the given address.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><em>bitcoinaddress</em> &#8211; Bitcoin address to get account for.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitcoin.connection.BitcoinConnection.getaccountaddress">
+<tt class="descname">getaccountaddress</tt><big>(</big><em>account</em><big>)</big><a class="headerlink" href="#bitcoin.connection.BitcoinConnection.getaccountaddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current bitcoin address for receiving payments to an account.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><em>account</em> &#8211; Account for which the address should be returned.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitcoin.connection.BitcoinConnection.getaddressesbyaccount">
+<tt class="descname">getaddressesbyaccount</tt><big>(</big><em>account</em><big>)</big><a class="headerlink" href="#bitcoin.connection.BitcoinConnection.getaddressesbyaccount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the list of addresses for the given account.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><em>account</em> &#8211; Account to get list of addresses for.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitcoin.connection.BitcoinConnection.getbalance">
+<tt class="descname">getbalance</tt><big>(</big><em>account=None</em><big>)</big><a class="headerlink" href="#bitcoin.connection.BitcoinConnection.getbalance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current balance, either for an account or the total server balance.</p>
+<p>Arguments:
+- <em>account</em> &#8211; If this parameter is specified, returns the balance in the account.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitcoin.connection.BitcoinConnection.getblockcount">
+<tt class="descname">getblockcount</tt><big>(</big><big>)</big><a class="headerlink" href="#bitcoin.connection.BitcoinConnection.getblockcount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of blocks in the longest block chain.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitcoin.connection.BitcoinConnection.getblocknumber">
+<tt class="descname">getblocknumber</tt><big>(</big><big>)</big><a class="headerlink" href="#bitcoin.connection.BitcoinConnection.getblocknumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the block number of the latest block in the longest block chain.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitcoin.connection.BitcoinConnection.getconnectioncount">
+<tt class="descname">getconnectioncount</tt><big>(</big><big>)</big><a class="headerlink" href="#bitcoin.connection.BitcoinConnection.getconnectioncount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of connections to other nodes.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitcoin.connection.BitcoinConnection.getdifficulty">
+<tt class="descname">getdifficulty</tt><big>(</big><big>)</big><a class="headerlink" href="#bitcoin.connection.BitcoinConnection.getdifficulty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the proof-of-work difficulty as a multiple of the minimum difficulty.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitcoin.connection.BitcoinConnection.getgenerate">
+<tt class="descname">getgenerate</tt><big>(</big><big>)</big><a class="headerlink" href="#bitcoin.connection.BitcoinConnection.getgenerate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <tt class="xref py py-const xref docutils literal"><span class="pre">True</span></tt> or <tt class="xref py py-const xref docutils literal"><span class="pre">False</span></tt>, depending on whether generation is enabled.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitcoin.connection.BitcoinConnection.gethashespersec">
+<tt class="descname">gethashespersec</tt><big>(</big><big>)</big><a class="headerlink" href="#bitcoin.connection.BitcoinConnection.gethashespersec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a recent hashes per second performance measurement while generating.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitcoin.connection.BitcoinConnection.getinfo">
+<tt class="descname">getinfo</tt><big>(</big><big>)</big><a class="headerlink" href="#bitcoin.connection.BitcoinConnection.getinfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an <a class="reference internal" href="bitcoin.data.html#bitcoin.data.ServerInfo" title="bitcoin.data.ServerInfo"><tt class="xref py py-class docutils literal"><span class="pre">ServerInfo</span></tt></a> object containing various state info.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitcoin.connection.BitcoinConnection.getnewaddress">
+<tt class="descname">getnewaddress</tt><big>(</big><em>account=None</em><big>)</big><a class="headerlink" href="#bitcoin.connection.BitcoinConnection.getnewaddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new bitcoin address for receiving payments.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><em>account</em> &#8211; If account is specified (recommended), it is added to the address book
+so that payments received with the address will be credited to it.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitcoin.connection.BitcoinConnection.getreceivedbyaccount">
+<tt class="descname">getreceivedbyaccount</tt><big>(</big><em>account</em>, <em>minconf=1</em><big>)</big><a class="headerlink" href="#bitcoin.connection.BitcoinConnection.getreceivedbyaccount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the total amount received by addresses with an account in transactions with 
+at least a certain number of confirmations.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><em>account</em> &#8211; Account to query for total amount.</li>
+<li><em>minconf</em> &#8211; Number of confirmations to require, defaults to 1.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitcoin.connection.BitcoinConnection.getreceivedbyaddress">
+<tt class="descname">getreceivedbyaddress</tt><big>(</big><em>bitcoinaddress</em>, <em>minconf=1</em><big>)</big><a class="headerlink" href="#bitcoin.connection.BitcoinConnection.getreceivedbyaddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the total amount received by a bitcoin address in transactions with at least a
+certain number of confirmations.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><em>bitcoinaddress</em> &#8211; Address to query for total amount.</li>
+<li><em>minconf</em> &#8211; Number of confirmations to require, defaults to 1.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitcoin.connection.BitcoinConnection.getwork">
+<tt class="descname">getwork</tt><big>(</big><em>data=None</em><big>)</big><a class="headerlink" href="#bitcoin.connection.BitcoinConnection.getwork" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get work for remote mining, or submit result. 
+If data is specified, the server tries to solve the block 
+using the provided data and returns <tt class="xref py py-const xref docutils literal"><span class="pre">True</span></tt> if it was successful.
+If not, the function returns formatted hash data (<a class="reference internal" href="bitcoin.data.html#bitcoin.data.WorkItem" title="bitcoin.data.WorkItem"><tt class="xref py py-class docutils literal"><span class="pre">WorkItem</span></tt></a>) 
+to work on.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><em>data</em> &#8211; Result from remote mining.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitcoin.connection.BitcoinConnection.listreceivedbyaccount">
+<tt class="descname">listreceivedbyaccount</tt><big>(</big><em>minconf=1</em>, <em>includeempty=False</em><big>)</big><a class="headerlink" href="#bitcoin.connection.BitcoinConnection.listreceivedbyaccount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of accounts.</p>
+<p>Each account is represented with a <a class="reference internal" href="bitcoin.data.html#bitcoin.data.AccountInfo" title="bitcoin.data.AccountInfo"><tt class="xref py py-class docutils literal"><span class="pre">AccountInfo</span></tt></a> object.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><em>minconf</em> &#8211; Minimum number of confirmations before payments are included.</li>
+<li><em>includeempty</em> &#8211; Whether to include addresses that haven&#8217;t received any payments.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitcoin.connection.BitcoinConnection.listreceivedbyaddress">
+<tt class="descname">listreceivedbyaddress</tt><big>(</big><em>minconf=1</em>, <em>includeempty=False</em><big>)</big><a class="headerlink" href="#bitcoin.connection.BitcoinConnection.listreceivedbyaddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of addresses.</p>
+<p>Each address is represented with a <a class="reference internal" href="bitcoin.data.html#bitcoin.data.AddressInfo" title="bitcoin.data.AddressInfo"><tt class="xref py py-class docutils literal"><span class="pre">AddressInfo</span></tt></a> object.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><em>minconf</em> &#8211; Minimum number of confirmations before payments are included.</li>
+<li><em>includeempty</em> &#8211; Whether to include addresses that haven&#8217;t received any payments.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitcoin.connection.BitcoinConnection.listtransactions">
+<tt class="descname">listtransactions</tt><big>(</big><em>account</em>, <em>count=10</em><big>)</big><a class="headerlink" href="#bitcoin.connection.BitcoinConnection.listtransactions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of the last transactions for an account.</p>
+<p>Each transaction is represented with a <a class="reference internal" href="bitcoin.data.html#bitcoin.data.TransactionInfo" title="bitcoin.data.TransactionInfo"><tt class="xref py py-class docutils literal"><span class="pre">TransactionInfo</span></tt></a> object.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><em>minconf</em> &#8211; Minimum number of confirmations before payments are included.</li>
+<li><em>count</em> &#8211; Number of transactions to return.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitcoin.connection.BitcoinConnection.move">
+<tt class="descname">move</tt><big>(</big><em>fromaccount</em>, <em>toaccount</em>, <em>amount</em>, <em>minconf=1</em>, <em>comment=None</em><big>)</big><a class="headerlink" href="#bitcoin.connection.BitcoinConnection.move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move from one account in your wallet to another.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><em>fromaccount</em> &#8211; Source account name.</li>
+<li><em>toaccount</em> &#8211; Destination account name.</li>
+<li><em>amount</em> &#8211; Amount to transfer.</li>
+<li><em>minconf</em> &#8211; Minimum number of confirmations required for transferred balance.</li>
+<li><em>comment</em> &#8211; Comment to add to transaction log.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitcoin.connection.BitcoinConnection.sendfrom">
+<tt class="descname">sendfrom</tt><big>(</big><em>fromaccount</em>, <em>tobitcoinaddress</em>, <em>amount</em>, <em>minconf=1</em>, <em>comment=None</em>, <em>comment_to=None</em><big>)</big><a class="headerlink" href="#bitcoin.connection.BitcoinConnection.sendfrom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends amount from account&#8217;s balance to bitcoinaddress. This method will fail 
+if there is less than amount bitcoins with minconf confirmations in the account&#8217;s 
+balance (unless account is the empty-string-named default account; it 
+behaves like the sendtoaddress method). Returns transaction ID on success.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><em>fromaccount</em> &#8211; Account to send from.</li>
+<li><em>tobitcoinaddress</em> &#8211; Bitcoin address to send to.</li>
+<li><em>amount</em> &#8211; Amount to send (float, rounded to the nearest 0.01).</li>
+<li><em>minconf</em> &#8211; Minimum number of confirmations required for transferred balance.</li>
+<li><em>comment</em> &#8211; Comment for transaction.</li>
+<li><em>comment_to</em> &#8211; Comment for to-address.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitcoin.connection.BitcoinConnection.sendtoaddress">
+<tt class="descname">sendtoaddress</tt><big>(</big><em>bitcoinaddress</em>, <em>amount</em>, <em>comment=None</em>, <em>comment_to=None</em><big>)</big><a class="headerlink" href="#bitcoin.connection.BitcoinConnection.sendtoaddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends <em>amount</em> from the server&#8217;s available balance to <em>bitcoinaddress</em>.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><em>bitcoinaddress</em> &#8211; Bitcoin address to send to.</li>
+<li><em>amount</em> &#8211; Amount to send (float, rounded to the nearest 0.01).</li>
+<li><em>minconf</em> &#8211; Minimum number of confirmations required for transferred balance.</li>
+<li><em>comment</em> &#8211; Comment for transaction.</li>
+<li><em>comment_to</em> &#8211; Comment for to-address.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitcoin.connection.BitcoinConnection.setaccount">
+<tt class="descname">setaccount</tt><big>(</big><em>bitcoinaddress</em>, <em>account</em><big>)</big><a class="headerlink" href="#bitcoin.connection.BitcoinConnection.setaccount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the account associated with the given address.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><em>bitcoinaddress</em> &#8211; Bitcoin address to associate.</li>
+<li><em>account</em> &#8211; Account to associate the address to.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitcoin.connection.BitcoinConnection.setgenerate">
+<tt class="descname">setgenerate</tt><big>(</big><em>generate</em>, <em>genproclimit=None</em><big>)</big><a class="headerlink" href="#bitcoin.connection.BitcoinConnection.setgenerate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable or disable generation (mining) of coins.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><em>generate</em> &#8211; is <tt class="xref py py-const xref docutils literal"><span class="pre">True</span></tt> or <tt class="xref py py-const xref docutils literal"><span class="pre">False</span></tt> to turn generation on or off.</li>
+<li><em>genproclimit</em> &#8211; Number of processors that are used for generation, -1 is unlimited.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitcoin.connection.BitcoinConnection.stop">
+<tt class="descname">stop</tt><big>(</big><big>)</big><a class="headerlink" href="#bitcoin.connection.BitcoinConnection.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop bitcoin server.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitcoin.connection.BitcoinConnection.validateaddress">
+<tt class="descname">validateaddress</tt><big>(</big><em>validateaddress</em><big>)</big><a class="headerlink" href="#bitcoin.connection.BitcoinConnection.validateaddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate a bitcoin address and return information for it.</p>
+<p>The information is represented by a <a class="reference internal" href="bitcoin.data.html#bitcoin.data.AddressValidation" title="bitcoin.data.AddressValidation"><tt class="xref py py-class docutils literal"><span class="pre">AddressValidation</span></tt></a> object.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><em>validateaddress</em> &#8211; Address to validate.</li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bitcoin.html"
+                        title="previous chapter"><tt class="docutils literal docutils literal"><span class="pre">bitcoin</span></tt> &#8212; Convenience functions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bitcoin.exceptions.html"
+                        title="next chapter"><tt class="docutils literal"><span class="pre">bitcoin.exceptions</span></tt> &#8212; Exception definitions</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/bitcoin.connection.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bitcoin.exceptions.html" title="bitcoin.exceptions — Exception definitions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bitcoin.html" title="bitcoin — Convenience functions"
+             >previous</a> |</li>
+        <li><a href="index.html">bitcoin-python v0.1 documentation</a> &raquo;</li>
+          <li><a href="apireference.html" >API reference</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Witchspace.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+    </div>
+  </body>
+</html>

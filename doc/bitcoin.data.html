@@ -1,0 +1,208 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>bitcoin.data — Bitcoin RPC service, data objects &mdash; bitcoin-python v0.1 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="bitcoin-python v0.1 documentation" href="index.html" />
+    <link rel="up" title="API reference" href="apireference.html" />
+    <link rel="next" title="bitcoin.config — Utilities for reading bitcoin configuration files" href="bitcoin.config.html" />
+    <link rel="prev" title="bitcoin.exceptions — Exception definitions" href="bitcoin.exceptions.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bitcoin.config.html" title="bitcoin.config — Utilities for reading bitcoin configuration files"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bitcoin.exceptions.html" title="bitcoin.exceptions — Exception definitions"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">bitcoin-python v0.1 documentation</a> &raquo;</li>
+          <li><a href="apireference.html" accesskey="U">API reference</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-bitcoin.data">
+<span id="bitcoin-data-bitcoin-rpc-service-data-objects"></span><h1><a class="reference internal" href="#module-bitcoin.data" title="bitcoin.data"><tt class="xref py py-mod docutils literal"><span class="pre">bitcoin.data</span></tt></a> &#8212; Bitcoin RPC service, data objects<a class="headerlink" href="#module-bitcoin.data" title="Permalink to this headline">¶</a></h1>
+<p>Bitcoin RPC service, data objects.</p>
+<dl class="class">
+<dt id="bitcoin.data.AccountInfo">
+<em class="property">class </em><tt class="descclassname">bitcoin.data.</tt><tt class="descname">AccountInfo</tt><big>(</big><em>*args_t</em>, <em>**args_d</em><big>)</big><a class="headerlink" href="#bitcoin.data.AccountInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="bitcoin.util.html#bitcoin.util.DStruct" title="bitcoin.util.DStruct"><tt class="xref py py-class docutils literal"><span class="pre">bitcoin.util.DStruct</span></tt></a></p>
+<p>Information object returned by <a class="reference internal" href="bitcoin.connection.html#bitcoin.connection.BitcoinConnection.listreceivedbyaccount" title="bitcoin.connection.BitcoinConnection.listreceivedbyaccount"><tt class="xref py py-func docutils literal"><span class="pre">listreceivedbyaccount()</span></tt></a>.</p>
+<ul class="simple">
+<li><em>account</em> &#8211; The account of the receiving address.</li>
+<li><em>amount</em> &#8211; Total amount received by the address.</li>
+<li><em>confirmations</em> &#8211; Number of confirmations of the most recent transaction included.</li>
+</ul>
+</dd></dl>
+
+<dl class="class">
+<dt id="bitcoin.data.AddressInfo">
+<em class="property">class </em><tt class="descclassname">bitcoin.data.</tt><tt class="descname">AddressInfo</tt><big>(</big><em>*args_t</em>, <em>**args_d</em><big>)</big><a class="headerlink" href="#bitcoin.data.AddressInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="bitcoin.util.html#bitcoin.util.DStruct" title="bitcoin.util.DStruct"><tt class="xref py py-class docutils literal"><span class="pre">bitcoin.util.DStruct</span></tt></a></p>
+<p>Information object returned by <a class="reference internal" href="bitcoin.connection.html#bitcoin.connection.BitcoinConnection.listreceivedbyaddress" title="bitcoin.connection.BitcoinConnection.listreceivedbyaddress"><tt class="xref py py-func docutils literal"><span class="pre">listreceivedbyaddress()</span></tt></a>.</p>
+<ul class="simple">
+<li><em>address</em> &#8211; Receiving address.</li>
+<li><em>account</em> &#8211; The account of the receiving address.</li>
+<li><em>amount</em> &#8211; Total amount received by the address.</li>
+<li><em>confirmations</em> &#8211; Number of confirmations of the most recent transaction included.</li>
+</ul>
+</dd></dl>
+
+<dl class="class">
+<dt id="bitcoin.data.AddressValidation">
+<em class="property">class </em><tt class="descclassname">bitcoin.data.</tt><tt class="descname">AddressValidation</tt><big>(</big><em>*args_t</em>, <em>**args_d</em><big>)</big><a class="headerlink" href="#bitcoin.data.AddressValidation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="bitcoin.util.html#bitcoin.util.DStruct" title="bitcoin.util.DStruct"><tt class="xref py py-class docutils literal"><span class="pre">bitcoin.util.DStruct</span></tt></a></p>
+<p>Information object returned by <a class="reference internal" href="bitcoin.connection.html#bitcoin.connection.BitcoinConnection.validateaddress" title="bitcoin.connection.BitcoinConnection.validateaddress"><tt class="xref py py-func docutils literal"><span class="pre">validateaddress()</span></tt></a>.</p>
+<ul class="simple">
+<li><em>isvalid</em> &#8211; Validatity of address (<tt class="xref py py-const xref docutils literal"><span class="pre">True</span></tt> or <tt class="xref py py-const xref docutils literal"><span class="pre">False</span></tt>).</li>
+<li><em>ismine</em> &#8211; <tt class="xref py py-const xref docutils literal"><span class="pre">True</span></tt> if the address is in the server&#8217;s wallet.</li>
+<li><em>address</em> &#8211; Bitcoin address.</li>
+</ul>
+</dd></dl>
+
+<dl class="class">
+<dt id="bitcoin.data.ServerInfo">
+<em class="property">class </em><tt class="descclassname">bitcoin.data.</tt><tt class="descname">ServerInfo</tt><big>(</big><em>*args_t</em>, <em>**args_d</em><big>)</big><a class="headerlink" href="#bitcoin.data.ServerInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="bitcoin.util.html#bitcoin.util.DStruct" title="bitcoin.util.DStruct"><tt class="xref py py-class docutils literal"><span class="pre">bitcoin.util.DStruct</span></tt></a></p>
+<p>Information object returned by <a class="reference internal" href="bitcoin.connection.html#bitcoin.connection.BitcoinConnection.getinfo" title="bitcoin.connection.BitcoinConnection.getinfo"><tt class="xref py py-func docutils literal"><span class="pre">getinfo()</span></tt></a>.</p>
+<ul class="simple">
+<li><em>errors</em> &#8211; Number of errors.</li>
+<li><em>blocks</em> &#8211; Number of blocks.</li>
+<li><em>paytxfee</em> &#8211; Amount of transaction fee to pay.</li>
+<li><em>keypoololdest</em> &#8211; Oldest key in keypool.</li>
+<li><em>genproclimit</em> &#8211; Processor limit for generation.</li>
+<li><em>connections</em> &#8211; Number of connections to other clients.</li>
+<li><em>difficulty</em> &#8211; Current generating difficulty.</li>
+<li><em>testnet</em> &#8211; True if connected to testnet, False if on real network.</li>
+<li><em>version</em> &#8211; Bitcoin client version.</li>
+<li><em>proxy</em> &#8211; Proxy configured in client.</li>
+<li><em>hashespersec</em> &#8211; Number of hashes per second (if generation enabled).</li>
+<li><em>balance</em> &#8211; Total current server balance.</li>
+<li><em>generate</em> &#8211; True if generation enabled, False if not.</li>
+</ul>
+</dd></dl>
+
+<dl class="class">
+<dt id="bitcoin.data.TransactionInfo">
+<em class="property">class </em><tt class="descclassname">bitcoin.data.</tt><tt class="descname">TransactionInfo</tt><big>(</big><em>*args_t</em>, <em>**args_d</em><big>)</big><a class="headerlink" href="#bitcoin.data.TransactionInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="bitcoin.util.html#bitcoin.util.DStruct" title="bitcoin.util.DStruct"><tt class="xref py py-class docutils literal"><span class="pre">bitcoin.util.DStruct</span></tt></a></p>
+<p>Information object returned by <a class="reference internal" href="bitcoin.connection.html#bitcoin.connection.BitcoinConnection.listtransactions" title="bitcoin.connection.BitcoinConnection.listtransactions"><tt class="xref py py-func docutils literal"><span class="pre">listtransactions()</span></tt></a>.</p>
+<ul class="simple">
+<li><em>category</em> &#8211; will be generate, send, receive, or move.</li>
+<li><em>amount</em> &#8211; amount of transaction.</li>
+<li><em>fee</em> &#8211; Fee (if any) paid (only for send transactions).</li>
+<li><em>confirmations</em> &#8211; number of confirmations (only for generate/send/receive).</li>
+<li><em>txid</em> &#8211; transaction ID (only for generate/send/receive).</li>
+<li><em>otheraccount</em> &#8211; account funds were moved to or from (only for move).</li>
+<li><em>message</em> &#8211; message associated with transaction (only for send).</li>
+<li><em>to</em> &#8211; message-to associated with transaction (only for send).</li>
+</ul>
+</dd></dl>
+
+<dl class="class">
+<dt id="bitcoin.data.WorkItem">
+<em class="property">class </em><tt class="descclassname">bitcoin.data.</tt><tt class="descname">WorkItem</tt><big>(</big><em>*args_t</em>, <em>**args_d</em><big>)</big><a class="headerlink" href="#bitcoin.data.WorkItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="bitcoin.util.html#bitcoin.util.DStruct" title="bitcoin.util.DStruct"><tt class="xref py py-class docutils literal"><span class="pre">bitcoin.util.DStruct</span></tt></a></p>
+<p>Information object returned by <a class="reference internal" href="bitcoin.connection.html#bitcoin.connection.BitcoinConnection.getwork" title="bitcoin.connection.BitcoinConnection.getwork"><tt class="xref py py-func docutils literal"><span class="pre">getwork()</span></tt></a>.</p>
+<ul class="simple">
+<li><em>midstate</em> &#8211; Precomputed hash state after hashing the first half of the data.</li>
+<li><em>data</em> &#8211; Block data.</li>
+<li><em>hash1</em> &#8211; Formatted hash buffer for second hash.</li>
+<li><em>target</em> &#8211; Little endian hash target.</li>
+</ul>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bitcoin.exceptions.html"
+                        title="previous chapter"><tt class="docutils literal"><span class="pre">bitcoin.exceptions</span></tt> &#8212; Exception definitions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bitcoin.config.html"
+                        title="next chapter"><tt class="docutils literal"><span class="pre">bitcoin.config</span></tt> &#8212; Utilities for reading bitcoin configuration files</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/bitcoin.data.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bitcoin.config.html" title="bitcoin.config — Utilities for reading bitcoin configuration files"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bitcoin.exceptions.html" title="bitcoin.exceptions — Exception definitions"
+             >previous</a> |</li>
+        <li><a href="index.html">bitcoin-python v0.1 documentation</a> &raquo;</li>
+          <li><a href="apireference.html" >API reference</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Witchspace.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+    </div>
+  </body>
+</html>
