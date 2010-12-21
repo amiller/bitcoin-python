@@ -39,5 +39,7 @@ def connect_to_remote(user, password, host='localhost', port=8332):
 
     Returns a :class:`~bitcoin.connection.BitcoinConnection` object.
     """
+    from bitcoin.connection import BitcoinConnection
+
     return BitcoinConnection(user, password, host, port)
 
